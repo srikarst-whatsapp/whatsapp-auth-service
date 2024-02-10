@@ -1,8 +1,8 @@
-package com.whatsapp.whatsappmessagingservice.repository;
+package com.whatsapp.whatsappauthservice.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.whatsapp.whatsappmessagingservice.entity.User;
+import com.whatsapp.whatsappauthservice.entity.User;
 
 public interface UserRepository extends CrudRepository<User, Long> {
 }

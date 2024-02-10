@@ -1,4 +1,4 @@
-package com.whatsapp.whatsappmessagingservice.exception;
+package com.whatsapp.whatsappauthservice.exception;
 
 public class ChatNotFoundException extends RuntimeException {
 

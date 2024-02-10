@@ -1,13 +1,13 @@
-package com.whatsapp.whatsappmessagingservice.service;
+package com.whatsapp.whatsappauthservice.service;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.whatsapp.whatsappmessagingservice.entity.User;
-import com.whatsapp.whatsappmessagingservice.exception.UserNotFoundException;
-import com.whatsapp.whatsappmessagingservice.repository.UserRepository;
+import com.whatsapp.whatsappauthservice.entity.User;
+import com.whatsapp.whatsappauthservice.exception.UserNotFoundException;
+import com.whatsapp.whatsappauthservice.repository.UserRepository;
 
 import lombok.AllArgsConstructor;
 

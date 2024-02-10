@@ -1,8 +1,8 @@
-package com.whatsapp.whatsappmessagingservice.service;
+package com.whatsapp.whatsappauthservice.service;
 
 import java.util.List;
 
-import com.whatsapp.whatsappmessagingservice.entity.Message;
+import com.whatsapp.whatsappauthservice.entity.Message;
 
 public interface MessageService {
     List<Message> getMessages(Long senderId, Long receiverId);

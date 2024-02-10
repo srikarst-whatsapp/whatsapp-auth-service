@@ -1,4 +1,4 @@
-package com.whatsapp.whatsappmessagingservice;
+package com.whatsapp.whatsappauthservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class WhatsappAuthServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(WhatsappAuthServiceApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(WhatsappAuthServiceApplication.class, args);
+    }
 
 }

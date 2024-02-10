@@ -1,4 +1,4 @@
-package com.whatsapp.whatsappmessagingservice.web;
+package com.whatsapp.whatsappauthservice.web;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.whatsapp.whatsappmessagingservice.entity.User;
-import com.whatsapp.whatsappmessagingservice.service.UserService;
+import com.whatsapp.whatsappauthservice.entity.User;
+import com.whatsapp.whatsappauthservice.service.UserService;
 
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

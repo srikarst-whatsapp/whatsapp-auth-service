@@ -1,4 +1,4 @@
-package com.whatsapp.whatsappmessagingservice.entity;
+package com.whatsapp.whatsappauthservice.entity;
 
 import java.util.List;
 

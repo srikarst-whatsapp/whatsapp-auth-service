@@ -1,11 +1,11 @@
-package com.whatsapp.whatsappmessagingservice.service;
+package com.whatsapp.whatsappauthservice.service;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.whatsapp.whatsappmessagingservice.entity.Chat;
-import com.whatsapp.whatsappmessagingservice.entity.Message;
-import com.whatsapp.whatsappmessagingservice.entity.User;
+import com.whatsapp.whatsappauthservice.entity.Chat;
+import com.whatsapp.whatsappauthservice.entity.Message;
+import com.whatsapp.whatsappauthservice.entity.User;
 
 public interface ChatService {
     Optional<Chat> getChat(Long senderId, Long receiverId);
