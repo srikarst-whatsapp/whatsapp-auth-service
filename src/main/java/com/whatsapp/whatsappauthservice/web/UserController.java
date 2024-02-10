@@ -1,6 +1,6 @@
 package com.whatsapp.whatsappauthservice.web;
 
-import java.util.List;
+import jakarta.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.whatsapp.whatsappauthservice.entity.User;
 import com.whatsapp.whatsappauthservice.service.UserService;
 
-import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -24,17 +23,14 @@ public class UserController {
     UserService userService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUser(@PathVariable Long id) {
-        return new ResponseEntity<>(userService.getUser(id), HttpStatus.OK);
+    public ResponseEntity<String> findById(@PathVariable Long id) {
+        return new ResponseEntity<>(userService.getUser(id).getUsername(), HttpStatus.OK);
     }
 
-    @PostMapping
-    public ResponseEntity<User> saveUser(@Valid @RequestBody User user) {
-        return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
+    @PostMapping("/register")
+    public ResponseEntity<HttpStatus> createUser(@Valid @RequestBody User user) {
+        userService.saveUser(user);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<List<User>> getUsers() {
-        return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
-    }
 }
