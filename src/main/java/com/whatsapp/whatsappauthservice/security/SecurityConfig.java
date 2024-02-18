@@ -2,14 +2,11 @@ package com.whatsapp.whatsappauthservice.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
 import com.whatsapp.whatsappauthservice.security.filter.AuthenticationFilter;
 import com.whatsapp.whatsappauthservice.security.filter.ExceptionHandlerFilter;
-import com.whatsapp.whatsappauthservice.security.filter.JWTAuthorizationFilter;
 import com.whatsapp.whatsappauthservice.security.manager.CustomAuthenticationManager;
 
 import lombok.AllArgsConstructor;
@@ -28,12 +25,8 @@ public class SecurityConfig {
         authenticationFilter.setFilterProcessesUrl("/authenticate");
         http
                 .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers(HttpMethod.POST, SecurityConstants.REGISTER_PATH).permitAll()
-                        .anyRequest().authenticated())
                 .addFilterBefore(new ExceptionHandlerFilter(), AuthenticationFilter.class)
                 .addFilter(authenticationFilter)
-                .addFilterAfter(new JWTAuthorizationFilter(), AuthenticationFilter.class)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         return http.build();
     }

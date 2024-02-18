@@ -18,6 +18,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.whatsapp.whatsappauthservice.entity.User;
+import com.whatsapp.whatsappauthservice.exception.UserNotFoundException;
 import com.whatsapp.whatsappauthservice.security.SecurityConstants;
 import com.whatsapp.whatsappauthservice.security.manager.CustomAuthenticationManager;
 
@@ -30,10 +31,10 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
-            throws AuthenticationException {
+            throws AuthenticationException, UserNotFoundException {
         try {
             User user = new ObjectMapper().readValue(request.getInputStream(), User.class);
-            Authentication authentication = new UsernamePasswordAuthenticationToken(user.getUsername(),
+            Authentication authentication = new UsernamePasswordAuthenticationToken(user.getPhone(),
                     user.getPassword());
             return authenticationManager.authenticate(authentication);
         } catch (IOException e) {

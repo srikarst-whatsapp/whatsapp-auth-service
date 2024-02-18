@@ -9,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.whatsapp.whatsappauthservice.entity.User;
+import com.whatsapp.whatsappauthservice.exception.UserNotFoundException;
 import com.whatsapp.whatsappauthservice.service.UserService;
 
 import lombok.AllArgsConstructor;
@@ -21,8 +22,9 @@ public class CustomAuthenticationManager implements AuthenticationManager {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
-    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        User user = userServiceImpl.getUser(authentication.getName());
+    public Authentication authenticate(Authentication authentication)
+            throws AuthenticationException, UserNotFoundException {
+        User user = userServiceImpl.getUnwrappedUser(authentication.getName());
         if (!bCryptPasswordEncoder.matches(authentication.getCredentials().toString(), user.getPassword())) {
             throw new BadCredentialsException("You provided an incorrect password.");
         }

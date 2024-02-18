@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.web.filter.OncePerRequestFilter;
 import com.auth0.jwt.exceptions.JWTVerificationException;
-import com.whatsapp.whatsappauthservice.exception.EntityNotFoundException;
+import com.whatsapp.whatsappauthservice.exception.UserNotFoundException;
 
 public class ExceptionHandlerFilter extends OncePerRequestFilter {
 
@@ -18,9 +18,9 @@ public class ExceptionHandlerFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
         try {
             filterChain.doFilter(request, response);
-        } catch (EntityNotFoundException e) { // Feel free to create a separate function.
+        } catch (UserNotFoundException e) { // Feel free to create a separate function.
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-            response.getWriter().write("Username doesn't exist");
+            response.getWriter().write("Phone doesn't exist");
             response.getWriter().flush();
         } catch (JWTVerificationException e) {
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);

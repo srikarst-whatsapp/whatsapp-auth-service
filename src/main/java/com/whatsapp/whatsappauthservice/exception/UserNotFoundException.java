@@ -1,9 +1,9 @@
 package com.whatsapp.whatsappauthservice.exception;
 
-public class UserNotFoundException extends RuntimeException {
+public class UserNotFoundException extends CustomException {
 
-    public UserNotFoundException(Long id) {
-        super("The user id '" + id + "' does not exist in our records");
+    public UserNotFoundException(String phone) {
+        super("The user with phone '" + phone + "' does not exist in our records");
     }
 
 }

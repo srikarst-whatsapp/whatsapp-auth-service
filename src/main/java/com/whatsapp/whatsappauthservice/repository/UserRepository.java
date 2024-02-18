@@ -6,7 +6,8 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.whatsapp.whatsappauthservice.entity.User;
 
-public interface UserRepository extends CrudRepository<User, Long> {
-    Optional<User> findByUsername(String username);
-    // boolean existsByUsername(String username);
+public interface UserRepository extends CrudRepository<User, String> {
+    Optional<User> findByPhone(String phone);
+
+    boolean existsByPhone(String phone);
 }
