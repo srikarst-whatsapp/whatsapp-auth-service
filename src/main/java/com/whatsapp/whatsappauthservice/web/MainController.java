@@ -23,7 +23,7 @@ public class MainController {
 
     @GetMapping("")
     public ResponseEntity<String> sayWelcome() {
-        return new ResponseEntity<>("Hi and welcome", HttpStatus.CREATED);
+        return new ResponseEntity<>("Hello and welcome", HttpStatus.CREATED);
     }
 
 }
